@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
+  <rect width="400" height="600" rx="12" fill="#8b1e3f" />
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Merriweather, serif" font-size="28">Book 1</text>
+  <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" fill="#fff" font-family="Merriweather, serif" font-size="16">The Broken Crown</text>
+</svg>

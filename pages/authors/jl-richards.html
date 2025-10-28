@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>J. L. Richards — Tales N Tools</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script>
+        (function () {
+            try {
+                if (!sessionStorage.getItem('site_header_html')) {
+                    fetch('/includes/header.html').then(function (r) { if (r.ok) return r.text(); }).then(function (t) { if (t) sessionStorage.setItem('site_header_html', t); }).catch(function () { });
+                }
+            } catch (e) { }
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="site-header-include"></div>
+
+    <main>
+        <section class="container">
+            <h1>J. L. Richards</h1>
+            <p class="muted">J. L. Richards writes atmospheric literary fiction. Their work explores memory, place, and
+                quiet revelations.</p>
+
+            <h2>Selected works</h2>
+            <ul>
+                <li><strong>The Lantern on Marrow Lane</strong> — novel (2024)</li>
+                <li><strong>Something Like Blue</strong> — short stories (2023)</li>
+            </ul>
+
+            <h2>About</h2>
+            <p>J. L. Richards lives between cities and writes stories that fold domestic detail into broader mysteries.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="year"></span> Tales N Tools — Built with curiosity.</p>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

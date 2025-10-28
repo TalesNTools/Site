@@ -1,0 +1,606 @@
+/* Clean stylesheet for Tales N Tools - publisher + developer aesthetic */
+
+:root {
+    --paper: #fbf8f3;
+    /* warm paper */
+    --text: #0b1220;
+    /* deep ink */
+    --muted: #5b6870;
+    /* gray for captions */
+    --accent: #8b1e3f;
+    /* warm burgundy for publisher feel */
+    --card: #ffffff;
+    --code-bg: #0b1220;
+    --code-fg: #f6f8fa;
+    /* site-wide layout width */
+    --site-max-width: 1000px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: var(--paper);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+    /* Ensure a stable scrollbar gutter to prevent horizontal layout shifts
+       when pages differ in height (keeps all pages aligned consistently). */
+    overflow-y: scroll;
+}
+
+/* Prefer modern API when available to reserve scrollbar space without
+   forcing a visible scrollbar in all browsers. */
+html {
+    scrollbar-gutter: stable;
+}
+
+.container {
+    max-width: var(--site-max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Header / masthead */
+.header-inner {
+    display: flex;
+    flex-direction: column;
+    /* stack brand/search above nav */
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand {
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    /* remove underline from linked title */
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+}
+
+/* make brand bigger and adjust spacing */
+.brand {
+    font-size: 2.4rem;
+    line-height: 1;
+}
+
+/* branding image (replaces text title) */
+.brand-img {
+    display: block;
+    height: 56px;
+    /* match search control height */
+    width: auto;
+}
+
+/* Carousel styles */
+.carousel {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    /* hide scrollbar for IE/Edge */
+    scrollbar-width: none;
+    /* hide scrollbar for Firefox */
+    scroll-snap-type: x mandatory;
+    padding: 0;
+    /* remove inner white padding */
+    scroll-behavior: smooth;
+}
+
+/* hide webkit scrollbars while keeping scroll functional */
+.carousel-track::-webkit-scrollbar {
+    display: none;
+    height: 0;
+}
+
+.slide {
+    min-width: 220px;
+    flex: 0 0 220px;
+    scroll-snap-align: center;
+    background: transparent;
+    /* make slides blend with site (no white) */
+    padding: .15rem .25rem;
+    /* minimal padding so covers align nicely */
+    border-radius: 6px;
+    box-shadow: none;
+    text-align: center;
+}
+
+.carousel-btn {
+    background: transparent;
+    border: 0;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: .25rem .5rem;
+}
+
+.cover {
+    width: 140px;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 0.6rem;
+}
+
+.small {
+    font-size: .9rem;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-family: 'Merriweather', Georgia, serif;
+    letter-spacing: .02em;
+}
+
+.brand-wrap {
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    /* remove extra top offset so title aligns with nav */
+    /* allow brand row to expand horizontally to fill space between brand and nav */
+    flex: 1 1 auto;
+}
+
+.brand-row {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    justify-content: center;
+    /* center title + search */
+    width: 100%;
+    max-width: var(--site-max-width);
+    padding: 0 1rem;
+}
+
+/* Ensure top-level page sections don't accidentally expand beyond the container */
+main,
+header,
+.site-banner,
+.site-footer {
+    width: 100%;
+}
+
+.site-tag {
+    color: var(--muted);
+    font-size: .95rem;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    letter-spacing: .01em;
+}
+
+/* Announcement banner above the header */
+.site-banner {
+    background: linear-gradient(90deg, rgba(139, 30, 63, 0.06), rgba(139, 30, 63, 0.02));
+    border-bottom: 1px solid rgba(16, 24, 32, 0.04);
+}
+
+.site-banner .banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .8rem;
+    padding: .75rem 0;
+}
+
+.site-banner .banner-text {
+    margin: 0;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: .02em;
+}
+
+.site-banner .banner-close {
+    background: transparent;
+    border: 0;
+    font-size: 1.1rem;
+    color: var(--muted);
+    cursor: pointer;
+    padding: .15rem .4rem;
+}
+
+/* header search */
+.header-search {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    /* connect input and button */
+    margin-left: 0;
+    /* centered layout, remove left margin */
+    flex: 0 1 120%;
+    width: 120%;
+    /* twice the previous width */
+    max-width: 1280px;
+    align-self: center;
+    /* center inside brand-row */
+}
+
+.header-search input[type="search"] {
+    padding: 0 1rem;
+    border: 1px solid rgba(16, 24, 32, .10);
+    border-radius: 10px 0 0 10px;
+    min-width: 0;
+    /* allow shrinking inside flex */
+    width: 100%;
+    height: 56px;
+    /* taller search field for stronger presence */
+    background: rgba(255, 255, 255, .98);
+    font-size: 1.125rem;
+}
+
+.header-search .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    padding: 0 1rem;
+    border-radius: 0 10px 10px 0;
+    border: 1px solid rgba(16, 24, 32, 0.10);
+    border-left: 0;
+    /* visually attach to the input */
+    background: var(--accent);
+    color: #fff;
+    color: #fff;
+}
+
+.header-search .btn svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    fill: none;
+}
+
+/* visually hidden helper for screen readers */
+.sr-only {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+    border: 0;
+    padding: 0;
+    margin: -1px;
+}
+
+@media (max-width:700px) {
+    .brand-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .25rem
+    }
+
+    .header-search {
+        margin-left: 0;
+    }
+
+    .header-search input[type="search"] {
+        min-width: 120px
+    }
+}
+
+.byline {
+    font-size: .78rem;
+    color: var(--muted);
+    margin-top: .12rem;
+}
+
+.nav-toggle {
+    background: transparent;
+    border: 0;
+    color: var(--text);
+    font-size: 1.2rem;
+    display: none
+}
+
+.site-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    /* center nav items horizontally */
+}
+
+.site-nav a {
+    color: var(--muted);
+    align-self: center;
+    /* ensure mobile toggle lines up too */
+    text-decoration: none
+}
+
+.site-nav {
+    flex: 0 0 auto;
+    /* keep nav at its intrinsic width */
+    align-self: center;
+    /* vertically center nav inside header */
+}
+
+/* make primary nav items larger */
+.site-nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+.site-nav ul li+li {
+    /* vertical separator between nav items */
+    border-left: 1px solid rgba(16, 24, 32, 0.10);
+    padding-left: .85rem;
+    margin-left: .6rem;
+}
+
+.site-nav ul li a {
+    font-size: 19px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.18;
+    letter-spacing: .45px;
+    text-transform: none;
+    font-family: "Poynter", 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial !important;
+    color: var(--muted);
+    text-decoration: none;
+    display: inline-block;
+    padding: .45rem .6rem;
+}
+
+/* warm burgundy for publisher feel is set in :root */
+/* Hero */
+.hero {
+    padding: 3.25rem 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 2rem;
+    align-items: start
+}
+
+.hero-main {
+    /* Align hero content width with site container so H1 aligns with other pages */
+    max-width: var(--site-max-width);
+}
+
+/* Keep readable measure for lead paragraphs while aligning the H1 */
+.hero-main .lead {
+    max-width: 60ch;
+}
+
+.hero h1 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 2.25rem;
+    margin: .15rem 0;
+}
+
+.tagline {
+    color: var(--muted);
+    margin: 0 0 1rem
+}
+
+.lead {
+    margin: 0 0 1rem;
+    color: var(--text);
+    opacity: .95
+}
+
+.cta-row {
+    display: flex;
+    gap: .75rem;
+    justify-content: flex-start;
+    margin-top: 1rem
+}
+
+.btn {
+    display: inline-block;
+    padding: .5rem .9rem;
+    border-radius: 6px;
+    border: 1px solid rgba(16, 24, 32, .06);
+    color: var(--text);
+    text-decoration: none;
+    background: transparent
+}
+
+.btn.primary {
+    background: linear-gradient(90deg, var(--accent), #6b1734);
+    border: 0;
+    color: #fff;
+}
+
+/* Publications */
+.publications {
+    /* Remove extra vertical padding so layout lines up exactly with other pages */
+    padding: 0;
+}
+
+.pub-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem
+}
+
+.pub {
+    background: var(--card);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(20, 24, 28, .06)
+}
+
+.pub h3 {
+    margin: 0 0 .35rem;
+    font-family: 'Georgia', 'Merriweather', serif
+}
+
+.pub p {
+    margin: 0 0 .6rem;
+    color: var(--muted)
+}
+
+.read-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600
+}
+
+/* Series and books */
+.series-list {
+    margin: 1rem 0 1.5rem;
+}
+
+.series {
+    /* match site cards: no left border, no extra gradient — keep minimal spacing */
+    padding: 0;
+    margin-bottom: 1rem;
+    background: transparent;
+}
+
+.series-title {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    margin: 0;
+    font-family: 'Merriweather', Georgia, serif;
+}
+
+.series-toggle {
+    margin-left: auto;
+    background: transparent;
+    border: 0;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.series-content {
+    margin-top: .75rem;
+    padding-top: .5rem;
+    border-top: none;
+}
+
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: .75rem;
+}
+
+.book {
+    background: var(--card);
+    padding: .75rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(20, 24, 28, .04);
+}
+
+.book h4 {
+    margin: .15rem 0 .4rem;
+}
+
+.book.coming-soon {
+    opacity: .65;
+}
+
+.btn.disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+.placeholder {
+    padding: 1rem;
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .02), transparent);
+    color: var(--muted)
+}
+
+.hero-aside {
+    position: relative
+}
+
+.release-card {
+    background: var(--card);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(16, 24, 32, .08)
+}
+
+.release-meta {
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: .5rem
+}
+
+.code-snippet {
+    background: var(--code-bg);
+    color: var(--code-fg);
+    padding: .6rem;
+    border-radius: 6px;
+    overflow: auto;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: .92rem;
+}
+
+/* Authors / tools specific */
+.authors-teaser .btn {
+    margin-top: .5rem
+}
+
+.tool-demo {
+    margin-top: 1rem
+}
+
+.tool-demo textarea {
+    min-height: 180px
+}
+
+.muted {
+    color: var(--muted)
+}
+
+.site-footer {
+    padding: 1.25rem 0;
+    border-top: 1px solid rgba(16, 24, 32, .06);
+    margin-top: 2rem
+}
+
+/* Responsive adjustments */
+@media (max-width:900px) {
+    .hero-grid {
+        grid-template-columns: 1fr
+    }
+
+    .site-nav {
+        display: none
+    }
+
+    .nav-toggle {
+        display: inline-block
+    }
+
+    .pub-list {
+        grid-template-columns: 1fr
+    }
+
+    .cta-row {
+        flex-direction: column
+    }
+}
+
+@media (max-width:480px) {
+    .brand {
+        font-size: 1rem
+    }
+}

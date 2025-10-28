@@ -1,0 +1,37 @@
+<div class="site-banner" role="region" aria-live="polite">
+    <div class="container banner-inner">
+        <p class="banner-text">Announcement placeholder — details coming soon.</p>
+        <button class="banner-close" aria-label="Dismiss announcement"
+            onclick="this.closest('.site-banner').style.display='none'">×</button>
+    </div>
+</div>
+
+<header class="site-header">
+    <div class="container header-inner masthead">
+        <div class="brand-wrap">
+            <div class="brand-row">
+                <a class="brand" href="/"><img src="/assets/banner-talesntools.png" alt="Tales N Tools"
+                        class="brand-img"></a>
+                <form class="header-search" role="search" aria-label="Search the site" action="#">
+                    <input type="search" id="site-search" name="q" placeholder="Search Tales" />
+                    <button class="btn" type="submit" aria-label="Search">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"
+                            focusable="false">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <span class="sr-only">Search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">☰</button>
+        <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="/pages/authors/index.html">Authors</a></li>
+                <li><a href="/pages/tales/index.html">Tales</a></li>
+                <li><a href="/pages/tools/index.html">Tools</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
