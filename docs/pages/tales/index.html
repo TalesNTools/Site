@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tales — Tales N Tools</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <meta name="description" content="Tales — the fiction catalog from Tales N Tools." />
+    <script>
+        (function () {
+            try {
+                if (!sessionStorage.getItem('site_header_html')) {
+                    fetch('/includes/header.html').then(function (r) { if (r.ok) return r.text(); }).then(function (t) { if (t) sessionStorage.setItem('site_header_html', t); }).catch(function () { });
+                }
+            } catch (e) { }
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="site-header-include"></div>
+
+    <main>
+        <section class="container publications">
+            <h1>Tales</h1>
+            <p class="muted">Our fiction catalog: novels, series, and short-story collections curated with attention to
+                craft.</p>
+
+            <div class="series-list">
+                <article class="series" id="series-of-fate-and-blood">
+                    <h2 class="series-title">Of Fate and Blood</h2>
+                    <p class="muted">An epic saga spanning twelve volumes — a tale of destiny, lineage, and sacrifice.
+                    </p>
+                    <div class="series-content" id="of-fate-and-blood">
+                        <p><a class="btn" href="#">Buy Series on Amazon</a></p>
+                        <div class="carousel" aria-roledescription="carousel" tabindex="0">
+                            <button class="carousel-btn prev" aria-label="Previous">◀</button>
+                            <div class="carousel-track">
+                                <!-- Book slides -->
+                                <div class="slide">
+                                    <img src="/assets/covers/book-1.svg" alt="Book 1 cover" class="cover" />
+                                    <h4>Book 1 — The Broken Crown</h4>
+                                    <p class="muted">The opening of the saga: a kingdom in turmoil and a crown
+                                        shattered.</p>
+                                    <p><a class="btn" href="#">Buy on Amazon</a></p>
+                                </div>
+                                <div class="slide">
+                                    <img src="/assets/covers/book-2.svg" alt="Book 2 cover" class="cover" />
+                                    <h4>Book 2 — (coming soon)</h4>
+                                    <p class="muted">Coming soon.</p>
+                                    <p><a class="btn disabled" aria-disabled="true">Buy on Amazon</a></p>
+                                </div>
+                                <div class="slide">
+                                    <img src="/assets/covers/book-3.svg" alt="Book 3 cover" class="cover" />
+                                    <h4>Book 3 — (coming soon)</h4>
+                                    <p class="muted">Coming soon.</p>
+                                    <p><a class="btn disabled" aria-disabled="true">Buy on Amazon</a></p>
+                                </div>
+                                <div class="slide">
+                                    <img src="/assets/covers/book-4.svg" alt="Book 4 cover" class="cover" />
+                                    <h4>Book 4 — (coming soon)</h4>
+                                    <p class="muted">Coming soon.</p>
+                                    <p><a class="btn disabled" aria-disabled="true">Buy on Amazon</a></p>
+                                </div>
+                                <div class="slide">
+                                    <img src="/assets/covers/book-5.svg" alt="Book 5 cover" class="cover" />
+                                    <h4>Book 5 — (coming soon)</h4>
+                                    <p class="muted">Coming soon.</p>
+                                    <p><a class="btn disabled" aria-disabled="true">Buy on Amazon</a></p>
+                                </div>
+                                <div class="slide">
+                                    <img src="/assets/covers/book-6.svg" alt="Book 6 cover" class="cover" />
+                                    <h4>Book 6 — (coming soon)</h4>
+                                    <p class="muted">Coming soon.</p>
+                                    <p><a class="btn disabled" aria-disabled="true">Buy on Amazon</a></p>
+                                </div>
+                                <div class="slide">
+                                    <img src="/assets/covers/book-7.svg" alt="Book 7 cover" class="cover" />
+                                    <h4>Book 7 — (coming soon)</h4>
+                                    <p class="muted">Coming soon.</p>
+                                    <p><a class="btn disabled" aria-disabled="true">Buy on Amazon</a></p>
+                                </div>
+                                <div class="slide">
+                                    <img src="/assets/covers/book-8.svg" alt="Book 8 cover" class="cover" />
+                                    <h4>Book 8 — (coming soon)</h4>
+                                    <p class="muted">Coming soon.</p>
+                                    <p><a class="btn disabled" aria-disabled="true">Buy on Amazon</a></p>
+                                </div>
+                                <div class="slide">
+                                    <img src="/assets/covers/book-9.svg" alt="Book 9 cover" class="cover" />
+                                    <h4>Book 9 — (coming soon)</h4>
+                                    <p class="muted">Coming soon.</p>
+                                    <p><a class="btn disabled" aria-disabled="true">Buy on Amazon</a></p>
+                                </div>
+                                <div class="slide">
+                                    <img src="/assets/covers/book-10.svg" alt="Book 10 cover" class="cover" />
+                                    <h4>Book 10 — (coming soon)</h4>
+                                    <p class="muted">Coming soon.</p>
+                                    <p><a class="btn disabled" aria-disabled="true">Buy on Amazon</a></p>
+                                </div>
+                                <div class="slide">
+                                    <img src="/assets/covers/book-11.svg" alt="Book 11 cover" class="cover" />
+                                    <h4>Book 11 — (coming soon)</h4>
+                                    <p class="muted">Coming soon.</p>
+                                    <p><a class="btn disabled" aria-disabled="true">Buy on Amazon</a></p>
+                                </div>
+                                <div class="slide">
+                                    <img src="/assets/covers/book-12.svg" alt="Book 12 cover" class="cover" />
+                                    <h4>Book 12 — (coming soon)</h4>
+                                    <p class="muted">Coming soon.</p>
+                                    <p><a class="btn disabled" aria-disabled="true">Buy on Amazon</a></p>
+                                </div>
+                            </div>
+                            <button class="carousel-btn next" aria-label="Next">▶</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="year"></span> Tales N Tools — Built with curiosity.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="scripts/carousel.js"></script>
+</body>
+
+</html>

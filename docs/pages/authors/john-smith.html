@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>John Smith — Tales N Tools</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script>
+        (function () {
+            try {
+                if (!sessionStorage.getItem('site_header_html')) {
+                    var segs = window.location.pathname.split('/').filter(Boolean);
+                    var depth = Math.max(0, segs.length - 1);
+                    var basePrefix = depth ? '../'.repeat(depth) : './';
+                    fetch(basePrefix + 'includes/header.html').then(function (r) { if (r.ok) return r.text(); }).then(function (t) { if (t) sessionStorage.setItem('site_header_html', t); }).catch(function () { });
+                }
+            } catch (e) { }
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="site-header-include"></div>
+
+    <main>
+        <section class="container">
+            <h1>John Smith</h1>
+            <p class="muted">John writes short stories that focus on small, pivotal moments. His collection
+                <em>Something Like Blue</em> was released in 2023.
+            </p>
+
+            <h2>Selected works</h2>
+            <ul>
+                <li><strong>Something Like Blue</strong> — short stories (2023)</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="year"></span> Tales N Tools — Built with curiosity.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Tales N Tools — a multimedia studio where storytelling meets technology." />
+    <title>Tales N Tools</title>
+    <link rel="icon" href="assets/favicon.svg" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@300;400;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" />
+    <script>
+        // Prefetch shared header HTML into sessionStorage early to avoid flicker on navigation.
+        (function () {
+            try {
+                if (!sessionStorage.getItem('site_header_html')) {
+                    var segs = window.location.pathname.split('/').filter(Boolean);
+                    var depth = Math.max(0, segs.length - 1);
+                    var basePrefix = depth ? '../'.repeat(depth) : './';
+                    fetch(basePrefix + 'includes/header.html').then(function (r) { if (r.ok) return r.text(); }).then(function (t) { if (t) sessionStorage.setItem('site_header_html', t); }).catch(function () { });
+                }
+            } catch (e) { }
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="site-header-include"></div>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-main">
+                    <h1>Tales N Tools</h1>
+                    <p class="lead">We publish character-driven fiction with careful editing and elegant design. Explore
+                        our catalog, meet the authors, or try the Authors Toolbox — small utilities for manuscript
+                        formatting and exporting.</p>
+                    <p class="cta-row">
+                        <a class="btn primary" href="tales/index.html">Browse Tales</a>
+                        <a class="btn" href="tools/index.html">Authors Toolbox</a>
+                    </p>
+                </div>
+
+                <aside class="hero-aside" aria-labelledby="releases-title">
+                    <h3 id="releases-title">Authors Toolbox</h3>
+                    <div class="release-card">
+                        <div class="release-meta"><strong>Authors Toolbox</strong> — v0.9.0</div>
+                        <pre class="code-snippet"><code>npm i authors-toolbox</code></pre>
+                        <p class="muted">Utilities for authors: manuscript formatting, exports, and metadata helpers.
+                        </p>
+                        <a class="btn" href="#tools">View tools</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="container publications catalog-teaser">
+            <h2>Tales</h2>
+            <p class="muted">Browse our catalog of fiction titles, including novels and short-story collections.</p>
+            <p><a class="btn" href="tales/index.html">Explore Tales →</a></p>
+        </section>
+
+        <section id="authors" class="container authors-teaser">
+            <h2>Meet our authors</h2>
+            <p class="muted">Discover the voices behind our catalog. Visit the authors directory for bios, links, and
+                sample chapters.</p>
+            <p><a class="btn" href="authors/index.html">Browse authors</a></p>
+        </section>
+
+        <section id="tools" class="container portfolio tools">
+            <h2>Authors Toolbox</h2>
+            <p class="muted">Tools and small utilities that help authors prepare manuscripts for publication.</p>
+            <div class="placeholder">
+                <strong>Manuscript Formatter</strong> — export clean manuscript files for editors and designers.<br>
+                <strong>Metadata Manager</strong> — prepare EPUB/ISBN metadata and cover templates.<br>
+                More tools coming soon.
+            </div>
+        </section>
+
+        <section id="about" class="container about">
+            <h2>About</h2>
+            <p>Tales N Tools is a small collection of tutorials, utilities, and project write-ups for curious makers.
+            </p>
+        </section>
+
+        <section id="contact" class="container contact">
+            <h2>Contact</h2>
+            <p>Want to collaborate or request a guide? Send an email to <a
+                    href="mailto:hello@example.com">hello@example.com</a>.</p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="year"></span> Tales N Tools — Built with curiosity.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

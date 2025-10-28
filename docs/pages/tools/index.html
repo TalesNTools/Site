@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Authors Toolbox — Tales N Tools</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script>
+        (function () {
+            try {
+                if (!sessionStorage.getItem('site_header_html')) {
+                    fetch('/includes/header.html').then(function (r) { if (r.ok) return r.text(); }).then(function (t) { if (t) sessionStorage.setItem('site_header_html', t); }).catch(function () { });
+                }
+            } catch (e) { }
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="site-header-include"></div>
+
+    <main>
+        <section class="container">
+            <h1>Authors Toolbox — Workspace for authors</h1>
+            <p class="muted">Organize. Create. Dream. Small utilities to help authors prepare manuscripts for editors
+                and publication.</p>
+
+            <h2>Manuscript Formatter (demo)</h2>
+            <p class="muted">Paste or type a raw manuscript and click "Format" to normalize paragraphs.</p>
+
+            <div class="tool-demo">
+                <textarea id="raw" rows="8" placeholder="Paste manuscript text here"
+                    style="width:100%;font-family:inherit;padding:.6rem;border:1px solid #ddd;border-radius:6px"></textarea>
+                <p style="margin:.5rem 0"><button id="formatBtn" class="btn">Format</button> <button id="downloadBtn"
+                        class="btn">Download</button></p>
+                <h3>Result</h3>
+                <pre id="result" class="code-snippet" style="white-space:pre-wrap"></pre>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="year"></span> Tales N Tools — Built with curiosity.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="scripts/tools-demo.js"></script>
+</body>
+
+</html>
